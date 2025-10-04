@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Azerbaijan - Tourism Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js">
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <!-- Header -->
+    <header id="header" class="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur shadow-sm dark:border-gray-800 dark:bg-gray-900/95">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 font-bold text-xl cursor-pointer" onclick="showPage('home')">
+                    <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-green-500 rounded-full flex items-center justify-center shadow-lg">
+                        <i data-lucide="map-pin" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <span class="bg-gradient-to-r from-red-600 to-green-600 bg-clip-text text-transparent font-extrabold">
+                        Visit Azerbaijan
+                    </span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-2" id="desktop-nav">
+                    <button onclick="showPage('home')" class="nav-btn active" data-page="home">
+                        <i data-lucide="home" class="w-4 h-4 mr-2"></i>Home
+                    </button>
+                    <button onclick="showPage('discover')" class="nav-btn" data-page="discover">
+                        <i data-lucide="map-pin" class="w-4 h-4 mr-2"></i>Discover
+                    </button>
+                    <button onclick="showPage('cuisine')" class="nav-btn" data-page="cuisine">
+                        <i data-lucide="utensils" class="w-4 h-4 mr-2"></i>Cuisine
+                    </button>
+                    <button onclick="showPage('phrasebook')" class="nav-btn" data-page="phrasebook">
+                        <i data-lucide="book-open" class="w-4 h-4 mr-2"></i>Phrasebook
+                    </button>
+                    <button onclick="showPage('visa')" class="nav-btn" data-page="visa">
+                        <i data-lucide="plane" class="w-4 h-4 mr-2"></i>Visa Info
+                    </button>
+                </nav>
+
+                <!-- Theme Toggle & Mobile Menu -->
+                <div class="flex items-center space-x-2">
+                    <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <i id="theme-icon" data-lucide="moon" class="w-5 h-5"></i>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <i id="mobile-menu-icon" data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-nav" class="md:hidden border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 hidden">
+                <nav class="py-4 space-y-2">
+                    <button onclick="showPage('home')" class="mobile-nav-btn w-full text-left" data-page="home">
+                        <i data-lucide="home" class="w-4 h-4 mr-3"></i>Home
+                    </button>
+                    <button onclick="showPage('discover')" class="mobile-nav-btn w-full text-left" data-page="discover">
+                        <i data-lucide="map-pin" class="w-4 h-4 mr-3"></i>Discover
+                    </button>
+                    <button onclick="showPage('cuisine')" class="mobile-nav-btn w-full text-left" data-page="cuisine">
+                        <i data-lucide="utensils" class="w-4 h-4 mr-3"></i>Cuisine
+                    </button>
+                    <button onclick="showPage('phrasebook')" class="mobile-nav-btn w-full text-left" data-page="phrasebook">
+                        <i data-lucide="book-open" class="w-4 h-4 mr-3"></i>Phrasebook
+                    </button>
+                    <button onclick="showPage('visa')" class="mobile-nav-btn w-full text-left" data-page="visa">
+                        <i data-lucide="plane" class="w-4 h-4 mr-3"></i>Visa Info
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Home Page -->
+        <div id="page-home" class="page active">
+            <!-- Hero Section -->
+            <section class="relative py-24 px-4 sm:px-6 lg:px-8 hero-bg overflow-hidden">
+                <div class="container mx-auto text-center relative z-10">
+                    <div class="max-w-4xl mx-auto">
+                        <div class="mb-8 inline-flex items-center space-x-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg">
+                            <span class="text-2xl">🇦🇿</span>
+                            <span class="font-semibold text-blue-600">Welcome to Azerbaijan</span>
+                        </div>
+                        
+                        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 hero-title leading-tight">
+                            The Pearl of the Caucasus
+                        </h1>
+                        <p class="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto">
+                            Discover the wonders of Azerbaijan - where ancient history meets modern elegance. 
+                            From the flames of Yanar Dag to the architectural marvels of Baku.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                            <button onclick="showPage('discover')" class="btn btn-primary text-lg px-8 py-6">
+                                Start Your Journey
+                                <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                            </button>
+                            <button onclick="showPage('cuisine')" class="btn btn-secondary text-lg px-8 py-6">
+                                Taste Our Culture
+                                <i data-lucide="utensils" class="ml-2 w-5 h-5"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Quick highlights -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                            <div class="highlight-card">
+                                <div class="text-2xl mb-2">🔥</div>
+                                <div class="font-semibold text-sm mb-1">Land of Fire</div>
+                                <div class="text-xs text-gray-500">Ancient flames that have burned for thousands of years</div>
+                            </div>
+                            <div class="highlight-card">
+                                <div class="text-2xl mb-2">🏛️</div>
+                                <div class="font-semibold text-sm mb-1">Silk Road Heritage</div>
+                                <div class="text-xs text-gray-500">Historic cities along the ancient Silk Road</div>
+                            </div>
+                            <div class="highlight-card">
+                                <div class="text-2xl mb-2">🏖️</div>
+                                <div class="font-semibold text-sm mb-1">Caspian Coastline</div>
+                                <div class="text-xs text-gray-500">Beautiful beaches along the Caspian Sea</div>
+                            </div>
+                            <div class="highlight-card">
+                                <div class="text-2xl mb-2">🏔️</div>
+                                <div class="font-semibold text-sm mb-1">Mountain Adventures</div>
+                                <div class="text-xs text-gray-500">Breathtaking Caucasus mountain landscapes</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+                <div class="container mx-auto">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div class="text-center stat-item">
+                            <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-xl">
+                                <i data-lucide="map-pin" class="w-10 h-10 text-white"></i>
+                            </div>
+                            <div class="text-4xl font-bold text-blue-600 mb-2">10+</div>
+                            <div class="text-gray-600 dark:text-gray-300 font-medium">Regions</div>
+                        </div>
+                        <div class="text-center stat-item">
+                            <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-xl">
+                                <i data-lucide="camera" class="w-10 h-10 text-white"></i>
+                            </div>
+                            <div class="text-4xl font-bold text-blue-600 mb-2">50+</div>
+                            <div class="text-gray-600 dark:text-gray-300 font-medium">Historic Sites</div>
+                        </div>
+                        <div class="text-center stat-item">
+                            <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-xl">
+                                <i data-lucide="users" class="w-10 h-10 text-white"></i>
+                            </div>
+                            <div class="text-4xl font-bold text-blue-600 mb-2">1000+</div>
+                            <div class="text-gray-600 dark:text-gray-300 font-medium">Happy Visitors</div>
+                        </div>
+                        <div class="text-center stat-item">
+                            <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-xl">
+                                <i data-lucide="star" class="w-10 h-10 text-white"></i>
+                            </div>
+                            <div class="text-4xl font-bold text-blue-600 mb-2">4.9</div>
+                            <div class="text-gray-600 dark:text-gray-300 font-medium">Rating</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
+                <div class="container mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl sm:text-5xl font-bold mb-6 text-gray-800 dark:text-gray-100">
+                            Plan Your Perfect Journey
+                        </h2>
+                        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                            Everything you need to explore Azerbaijan's rich heritage, stunning landscapes, and vibrant culture
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8" id="feature-cards">
+                        <!-- Feature cards will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Discover Page -->
+        <div id="page-discover" class="page">
+            <div class="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+                <div class="container mx-auto">
+                    <!-- Header -->
+                    <div class="text-center mb-12">
+                        <div class="flex justify-center mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-2xl">
+                                <i data-lucide="mountain" class="w-10 h-10 text-white"></i>
+                            </div>
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                            Discover Azerbaijan
+                        </h1>
+                        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                            Explore the regions that showcase our country's rich historical and cultural heritage
+                        </p>
+                    </div>
+
+                    <!-- Interactive Map -->
+                    <div class="mb-16">
+                        <div class="card interactive-map">
+                            <div class="relative h-96 flex items-center justify-center">
+                                <div class="text-center relative z-10">
+                                    <i data-lucide="map-pin" class="w-20 h-20 mx-auto mb-6 text-blue-600 animate-bounce"></i>
+                                    <h3 class="text-3xl font-bold mb-4 text-blue-600">
+                                        Interactive Map of Azerbaijan
+                                    </h3>
+                                    <p class="text-gray-600 dark:text-gray-300 text-lg">Click on the regions below to explore their attractions</p>
+                                </div>
+                                
+                                <!-- Animated region markers -->
+                                <div class="region-markers">
+                                    <div class="region-marker" style="top: 25%; left: 33%;" data-region="baku">
+                                        <div class="w-6 h-6 bg-red-500 rounded-full shadow-xl animate-pulse"></div>
+                                        <div class="marker-tooltip">Baku</div>
+                                    </div>
+                                    <div class="region-marker" style="top: 33%; left: 25%;" data-region="ganja">
+                                        <div class="w-6 h-6 bg-green-500 rounded-full shadow-xl animate-pulse"></div>
+                                        <div class="marker-tooltip">Ganja</div>
+                                    </div>
+                                    <div class="region-marker" style="top: 20%; left: 67%;" data-region="sheki">
+                                        <div class="w-6 h-6 bg-blue-500 rounded-full shadow-xl animate-pulse"></div>
+                                        <div class="marker-tooltip">Sheki</div>
+                                    </div>
+                                    <div class="region-marker" style="top: 40%; right: 25%;" data-region="gabala">
+                                        <div class="w-6 h-6 bg-purple-500 rounded-full shadow-xl animate-pulse"></div>
+                                        <div class="marker-tooltip">Gabala</div>
+                                    </div>
+                                    <div class="region-marker" style="bottom: 33%; left: 50%;" data-region="shamakhi">
+                                        <div class="w-6 h-6 bg-orange-500 rounded-full shadow-xl animate-pulse"></div>
+                                        <div class="marker-tooltip">Shamakhi</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Regions Grid -->
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="regions-grid">
+                        <!-- Regions will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cuisine Page -->
+        <div id="page-cuisine" class="page">
+            <div class="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+                <div class="container mx-auto">
+                    <!-- Header -->
+                    <div class="text-center mb-12">
+                        <div class="flex justify-center mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center shadow-2xl">
+                                <i data-lucide="chef-hat" class="w-10 h-10 text-white"></i>
+                            </div>
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                            Azerbaijani Cuisine
+                        </h1>
+                        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                            Discover the rich flavors and traditions of Azerbaijan's thousand-year-old culinary heritage
+                        </p>
+                    </div>
+
+                    <!-- Search -->
+                    <div class="max-w-md mx-auto mb-12">
+                        <div class="relative">
+                            <i data-lucide="search" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+                            <input 
+                                type="text" 
+                                placeholder="Search dishes..." 
+                                class="w-full pl-12 pr-4 py-4 text-lg rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none shadow-lg dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                                onkeyup="searchDishes(this.value)"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Dishes Grid -->
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16" id="dishes-grid">
+                        <!-- Dishes will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phrasebook Page -->
+        <div id="page-phrasebook" class="page">
+            <div class="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+                <div class="container mx-auto max-w-6xl">
+                    <!-- Header -->
+                    <div class="text-center mb-12">
+                        <div class="flex justify-center mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-blue-500 rounded-2xl flex items-center justify-center shadow-2xl">
+                                <i data-lucide="book-open" class="w-10 h-10 text-white"></i>
+                            </div>
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                            Travel Phrasebook
+                        </h1>
+                        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                            Essential Azerbaijani phrases and their pronunciation to help you communicate during your journey
+                        </p>
+                    </div>
+
+                    <!-- Search and Filter -->
+                    <div class="mb-8 space-y-6">
+                        <div class="relative max-w-2xl mx-auto">
+                            <i data-lucide="search" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+                            <input 
+                                type="text" 
+                                placeholder="Search for phrases..." 
+                                class="w-full pl-12 pr-4 py-4 text-lg rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none shadow-lg dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                                onkeyup="searchPhrases(this.value)"
+                            >
+                        </div>
+
+                        <div class="flex flex-wrap justify-center gap-3" id="phrase-categories">
+                            <!-- Categories will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Results -->
+                    <div class="space-y-6" id="phrases-grid">
+                        <!-- Phrases will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visa Page -->
+        <div id="page-visa" class="page">
+            <div class="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+                <div class="container mx-auto max-w-7xl">
+                    <!-- Header -->
+                    <div class="text-center mb-12">
+                        <div class="flex justify-center mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-2xl">
+                                <i data-lucide="plane" class="w-10 h-10 text-white"></i>
+                            </div>
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                            Visa Information
+                        </h1>
+                        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                            Complete visa requirements and travel information for visiting Azerbaijan
+                        </p>
+                    </div>
+
+                    <!-- Search -->
+                    <div class="max-w-2xl mx-auto mb-12">
+                        <div class="relative">
+                            <i data-lucide="search" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+                            <input 
+                                type="text" 
+                                placeholder="Search for your country..." 
+                                class="w-full pl-12 pr-4 py-4 text-lg rounded-full border-2 border-gray-200 focus:border-blue-500 focus:outline-none shadow-lg dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                                onkeyup="searchCountries(this.value)"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Visa Tabs -->
+                    <div class="mb-16">
+                        <div class="flex flex-wrap justify-center gap-2 mb-8" id="visa-tabs">
+                            <button onclick="showVisaTab('visa-free')" class="visa-tab-btn active" data-tab="visa-free">
+                                <i data-lucide="check-circle" class="w-6 h-6 mb-2"></i>
+                                <span>Visa-Free Entry</span>
+                            </button>
+                            <button onclick="showVisaTab('visa-on-arrival')" class="visa-tab-btn" data-tab="visa-on-arrival">
+                                <i data-lucide="clock" class="w-6 h-6 mb-2"></i>
+                                <span>Visa on Arrival</span>
+                            </button>
+                            <button onclick="showVisaTab('e-visa')" class="visa-tab-btn" data-tab="e-visa">
+                                <i data-lucide="globe" class="w-6 h-6 mb-2"></i>
+                                <span>Electronic Visa</span>
+                            </button>
+                        </div>
+
+                        <div id="visa-content">
+                            <!-- Visa content will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Requirements and Info Grid -->
+                    <div class="grid lg:grid-cols-3 gap-8 mb-16" id="visa-info-grid">
+                        <!-- Visa info will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for Cuisine Details -->
+    <div id="cuisine-modal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title"></h2>
+                <button onclick="closeModal()" class="modal-close">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Modal content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
